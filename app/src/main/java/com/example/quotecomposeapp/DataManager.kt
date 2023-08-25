@@ -2,7 +2,8 @@ package com.example.quotecomposeapp
 
 import android.content.Context
 import androidx.compose.runtime.mutableStateOf
-import com.example.quotecomposeapp.models.Quote
+import com.example.quotecomposeapp.data.models.Quote
+import com.example.quotecomposeapp.presantation.Pages
 import com.google.gson.Gson
 
 object DataManager {
@@ -10,7 +11,7 @@ object DataManager {
     var currentPage = mutableStateOf(Pages.LISTING)
     var data = emptyArray<Quote>()
     val isDataLoaded = mutableStateOf(false)
-    var currentQuote: Quote ?= null
+    var currentQuote: Quote?= null
 
     fun loadAssetsFromFile(context: Context){
         val inputStream = context.assets.open("quotes.json")

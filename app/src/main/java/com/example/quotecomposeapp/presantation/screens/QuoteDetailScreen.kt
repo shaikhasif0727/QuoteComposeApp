@@ -1,4 +1,4 @@
-package com.example.quotecomposeapp.screens
+package com.example.quotecomposeapp.presantation.screens
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
@@ -27,17 +27,17 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.quotecomposeapp.DataManager
 import com.example.quotecomposeapp.R
-import com.example.quotecomposeapp.models.Quote
+import com.example.quotecomposeapp.data.models.Quote
+import com.example.quotecomposeapp.presantation.viewmodels.QuoteDetailViewModel
 
 @Preview
 @Composable
-fun QuoteDetail(quote: Quote){
-
-    BackHandler {
-        DataManager.switchPages(null)
-    }
+fun QuoteDetail(){
+    val viewModel:QuoteDetailViewModel = hiltViewModel()
+    val quote = viewModel.quote
 
     Box(
         contentAlignment = Alignment.Center,
@@ -73,14 +73,14 @@ fun QuoteDetail(quote: Quote){
                 )
 
                 Text(
-                    text = quote.text,
+                    text = quote?.text.orEmpty(),
                     style = MaterialTheme.typography.headlineMedium,
                     fontFamily = FontFamily(Font(R.font.montserrat_regular)),
                     modifier = Modifier.padding(0.dp,0.dp,0.dp,8.dp)
                 )
                 Spacer(modifier = Modifier.padding(16.dp))
                 Text(
-                    text = quote.author,
+                    text = quote?.author.orEmpty(),
                     style = MaterialTheme.typography.titleSmall,
                     fontFamily = FontFamily(Font(R.font.montserrat_regular)),
                     fontWeight = FontWeight.Thin,

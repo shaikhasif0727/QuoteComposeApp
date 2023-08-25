@@ -1,4 +1,4 @@
-package com.example.quotecomposeapp.screens
+package com.example.quotecomposeapp.presantation.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -33,11 +33,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.quotecomposeapp.R
-import com.example.quotecomposeapp.models.Quote
+import com.example.quotecomposeapp.data.models.Quote
 
 @Preview
 @Composable
-fun QuoteListItem(quote: Quote,onClick: (Quote) -> Unit) {
+fun QuoteListItem(quote: Quote, onClick: (Quote) -> Unit) {
     Card(
         elevation = CardDefaults.cardElevation(4.dp),
         modifier = Modifier
